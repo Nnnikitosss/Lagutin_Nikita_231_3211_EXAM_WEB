@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина</title>
+    <link rel="stylesheet" href="css/cart.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <img src="images/logo.png" alt="Логотип" class="logo">
+            <div class="search-container">
+                <input type="text" placeholder="Введите запрос..." class="search">
+                <button class="search-button">Найти</button>
+            </div>
+            <nav>
+                <a href="index.html"><img src="images/menu.png" alt="Корзина"></a>
+                <a href="account.html"><img src="images/enter.png" alt="Войти"></a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section id="chosen_food" style="display: flex; justify-content: space-between; align-items: center;">
+            <h2>Корзина</h2>
+        </section>
+        <section id="chosen_food">
+            <div id="products-container">
+            </div>
+            <p id="empty-cart-message">Корзина пуста. Перейдите в каталог, чтобы добавить товары.</p>
+        </section>
+        
+        <section class="two-forms">
+            <div id="notification" class="notification hidden">
+                <p id="notification-text"></p>
+                <button id="notification-button">Окей</button>
+            </div>
+            <form>
+                <fieldset class="user">
+                    <legend class="your_data">Оформление заказа</legend>
+                    <div class="form-left">
+                        <label for="name">Имя</label>
+                        <input type="text" id="name" placeholder="Иван">
+                        <label for="phone" id="label_phone">Номер телефона</label>
+                        <input type="tel" id="phone" placeholder="+7-000-000-00-00" required>
+                        <label for="email" id="label_email">Email</label>
+                        <input type="email" id="email" placeholder="ivanov1990@mail.ru" required>
+                        <div class="subscribe-container">
+                            <input type="checkbox" id="subscribe" checked>
+                            <label for="subscribe" id="subscribe_yes">Подписаться на рассылку</label>
+                        </div>
+                        <label class='label_comment' for="comment">Комментарий</label>
+                        <textarea id="comment" rows="6" cols="34"></textarea>
+                    </div>
+                    <div class="form-right">
+                        <label for="address">Адрес доставки</label>
+                        <input type="text" id="address" placeholder="ул.Прянишникова, 2А, кв.0" required>
+                        <label id="label_delivery">Доставка осуществляется только по Москве</label>
+                        <label for="delivery_date">Дата доставки</label>
+                        <input type="date" id="delivery_date" required style="height: 40px;">
+                        <label for="delivery_time">Время доставки</label>
+                        <select id="delivery_time" required style="height: 40px;">
+                            <option value="10:00-14:00">10:00 - 14:00</option>
+                            <option value="14:00-18:00">14:00 - 18:00</option>
+                            <option value="18:00-22:00">18:00 - 22:00</option>
+                        </select>
+                        <div style="display: flex;  align-items: center;">
+                            <label id="total_price" style="font-weight: bold; font-size: 1.5em; margin-top: 7px;">Итоговая стоимость:</label>
+                            <p id="calculated_price" style="font-weight: bold; font-size: 1.5em;">0 руб.</p>
+                        </div>
+                        <p id="delivery_cost" style="text-align: left;">(Стоимость доставки: 500 руб.)</p>
+                        <div style="display: flex;  gap: 10px;">
+                            <button type="reset" id="reset">Сбросить</button>
+                            <button type="submit" id="submit">Оформить</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p style="    font-size: 1.0em;">© 2024 Smart Comfort. Все права защищены.</p>
+    </footer>
+    <script src="js/cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет</title>
+    <link rel="stylesheet" href="css/account.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <img src="images/logo.png" alt="Логотип" class="logo">
+            <div class="search-container">
+                <input type="text" placeholder="Введите запрос..." class="search">
+                <button class="search-button">Найти</button>
+            </div>
+            <nav>
+                <a href="index.html"><img src="images/menu.png" alt="Корзина"></a>
+                <a href="cart.html"><img src="images/cart.png" alt="Войти"></a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <h2>Заказы:</h2>
+        <table class="table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>№</th>
+                    <th>Дата оформления</th>
+                    <th>Состав заказа</th>
+                    <th>Стоимость</th>
+                    <th>Время доставки</th>
+                    <th>Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+        </div>
+        <div class="overlay" id="overlay" onclick="closeModal()"></div>
+        <div class="modal" id="view-modal">
+            <div class="modal-header">
+                <h2>Просмотр заказа</h2>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Дата оформления:</strong> <span id="details-date"></span></p>
+                <p><strong>Имя получателя:</strong> <span id="details-full-name"></span></p>
+                <p><strong>Адрес доставки:</strong> <span id="details-address"></span></p>
+                <p><strong>Тип доставки:</strong> <span id="details-type"></span></p>
+                <p><strong>Время доставки:</strong> <span id="details-time"></span></p>
+                <p><strong>Телефон:</strong> <span id="details-phone"></span></p>
+                <p><strong>Email:</strong> <span id="details-email"></span></p>
+                <h4>Комментарий</h4>
+                <p><span id="details-comment"></span></p>
+                <h4>Состав заказа</h4>
+                <p><span id="details-order"></span></p>
+                <p><strong>Стоимость:</strong> <span id="details-cost"></span></p>
+            </div>
+        </div>
+
+        <div class="modal" id="edit-modal">
+            <div class="modal-header">
+                <h2>Редактирование заказа</h2>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="editForm">
+                    <input type="hidden" id="edit-order-id" value="">
+                    <div class="form-group">
+                        <label for="edit-date">Дата оформления</label>
+                        <input type="text" id="edit-date" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-full-name">Имя получателя</label>
+                        <input type="text" id="edit-full-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-address">Адрес доставки</label>
+                        <input type="text" id="edit-address">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-time">Время доставки</label>
+                        <input type="text" id="edit-time">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-phone">Телефон</label>
+                        <input type="tel" id="edit-phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-email">Email</label>
+                        <input type="email" id="edit-email">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-comment">Комментарий</label>
+                        <textarea id="edit-comment"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-order">Состав заказа</label>
+                        <textarea id="edit-order" readonly></textarea> 
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-cost">Стоимость</label>
+                        <input type="text" id="edit-cost" readonly>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-confirm" onclick="saveOrder()">Сохранить</button>
+                <button class="btn btn-close" onclick="closeModal()">Отмена</button>
+            </div>
+        </div>
+
+        <div class="modal" id="delete-modal">
+            <div class="modal-header">
+                <h2>Удалить заказ</h2>
+                <button class="close-btn" onclick="deleteOrder()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Вы уверены, что хотите удалить заказ?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-confirm-del" onclick="confirmDelete()">Да, удалить</button>
+                <button class="btn btn-close" onclick="closeModal()">Отмена</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <p>© 2024 Smart Comfort. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/account.js"></script>
+</body>
+</html>

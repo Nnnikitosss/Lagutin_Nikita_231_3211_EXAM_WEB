@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <img src="images/logo.png" alt="Логотип" class="logo">
+            <div class="search-container">
+                <input type="text" placeholder="Введите запрос..." class="search">
+                <button class="search-button">Найти</button>
+            </div>
+            <nav>
+                <a href="cart.html"><img src="images/cart.png" alt="Корзина"></a>
+                <a href="account.html"><img src="images/enter.png" alt="Войти"></a>
+            </nav>
+        </div>
+    </header>
+    <div id="notification-bar" class="notification-bar"></div>
+    <div id="notifications"></div>
+    <main>
+        <aside>
+            <form id="filter-form">
+                <h2>Фильтры</h2>
+                <h3>Категории</h3>
+                <label>
+                    <input type="checkbox" name="main_category" value="home & kitchen"> Дом и кухня
+                </label>
+                <label>
+                    <input type="checkbox" name="main_category" value="tv, audio & cameras"> ТВ, аудио и камеры
+                </label>
+                <label>
+                    <input type="checkbox" name="main_category" value="sports & fitness"> Спорт и фитнес
+                </label>
+                <label>
+                    <input type="checkbox" name="main_category" value="beauty & health"> Красота и здоровье
+                </label>
+                <h3>Стоимость</h3>
+                <div class="price-range">
+                    <label>
+                        От: <input type="number" name="price_min" min="0" step="1">
+                    </label>
+                    <label>
+                        До: <input type="number" name="price_max" min="0" step="1">
+                    </label>
+                </div>
+                <div class="discount-checkbox">
+                    <label>
+                        <input type="checkbox" name="discount"> Только товары со скидками
+                    </label>
+                </div>
+                <button type="submit">Применить</button>
+                <button type="button" id="reset-filters">Сбросить</button>
+            </form>
+        </aside>
+        <section id="catalog">
+            <div class="catalog-header">
+                <h2>Каталог</h2>
+                <select id="sort-order">
+                    <option value="">Сортировка</option>
+                    <option value="rating_desc">По убыванию рейтинга</option>
+                    <option value="rating_asc">По возрастанию рейтинга</option>
+                    <option value="price_desc">По убыванию цены</option>
+                    <option value="price_asc">По возрастанию цены</option>
+                </select>
+            </div>
+            <div id="products">
+                <!-- Товары будут загружены сюда -->
+            </div>
+            <button id="load-more">Показать ещё</button>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Smart Comfort. Все права защищены.</p>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
